@@ -1,111 +1,84 @@
-# GitHub Action для генерации графика контрибуций с змейкой, которая "ест" твои коммиты
-name: Generate Snake
+name: Generate Ultimate Snake
 
-# Условия запуска workflow
 on:
-  # Расписание автоматического запуска (cron format)
+  # Триггеры запуска
   schedule:
-    # Запускать каждые 12 часов (в 00:00 и 12:00 UTC)
-    - cron: "0 */12 * * *"  # минута(0) час(*/12) день_месяца(*) месяц(*) день_недели(*)
-
-  # Разрешить ручной запуск из вкладки Actions
-  workflow_dispatch:
-  
-  # Также запускать при каждом пуше в указанные ветки
+    - cron: '0 */6 * * *'  # Каждые 6 часов
+  workflow_dispatch:        # Ручной запуск
   push:
-    branches:
-    - main    # Можно добавить другие ветки: - develop, - master
+    paths: ['.github/workflows/**']  # При изменении workflow
+    branches: [main]
 
-# Дополнительные триггеры (закомментированы - раскомментируй если нужно):
-#  pull_request:           # Запуск при пул-реквестах
-#    branches: [ main ]
-#  watch:                  # Запуск при добавлении в "watch" (звёздочки)
-#    types: [ started ]
-
-# Работы (jobs) которые выполняются в workflow
 jobs:
-  # Одна задача под названием "build"
-  build:
-    # Тип виртуальной машины для выполнения
-    runs-on: ubuntu-latest  # Можно изменить на: windows-latest, macos-latest
+  generate-snake:
+    runs-on: ubuntu-latest
     
-    # Дополнительные параметры среды (закомментированы):
-    # env:
-    #   NODE_VERSION: '18'    # Версия Node.js если нужна
-    #   PYTHON_VERSION: '3.10' # Версия Python если нужна
-    
-    # Шаги выполнения
     steps:
-      # Шаг 1: Клонирование репозитория
-      - name: Clone repository
-        uses: actions/checkout@v3  # Стандартное действие для клонирования repo
-        # with:
-        #   fetch-depth: 0        # Полная история коммитов (если нужно)
-        #   token: ${{ secrets.PAT }}  # Кастомный токен (если нужен особый доступ)
-
-      # Шаг 2: Генерация файлов со змейкой
-      - name: Generate snake animation files
-        uses: Platane/snk@v3  # Основной action для создания змейки
-        id: snake-gif  # ID для обращения к результатам этого шага
-        with:
-          # Имя пользователя GitHub (автоматически подставляется)
-          github_user_name: ${{ github.repository_owner }}
+    - name: Generate ultimate snake animation
+      uses: Platane/snk@master
+      with:
+        # === ОСНОВНЫЕ НАСТРОЙКИ ===
+        github_user_name: ${{ github.repository_owner }}
+        
+        # === КАКИЕ КОММИТЫ УЧИТЫВАТЬ ===
+        # gist_include: true|false           # Включать коммиты из Gist
+        # github_include: true|false         # Включать коммиты из GitHub
+        # private_include: true|false        # Включать приватные репозитории
+        
+        # === ЦВЕТА ЗМЕЙКИ ===
+        # color_snake: hex код или название
+        # color_dots: список цветов для точек
+        # color_dots_max: цвет максимальной активности
+        # color_dots_min: цвет минимальной активности 
+        # color_dots_null: цвет отсутствия активности
+        
+        # === РАЗМЕРЫ И АНИМАЦИЯ ===  
+        # square_size: размер квадратика
+        # pixel_size: размер пикселя
+        # margin: отступы
+        # margin_y: вертикальный отступ
+        # margin_x: горизонтальный отступ
+        # frames_per_day: кадров в день (плавность)
+        # frame_duration: длительность кадра (мс)
+        # autorun: авто-запуск анимации
+        # autorun_delay: задержка авто-запуска
+        # loop: зацикливание
+        # loop_delay: пауза между циклами
+        
+        # === ФИЛЬТРАЦИЯ КОММИТОВ ===
+        # year_filter: фильтр по году
+        # month_filter: фильтр по месяцу
+        # start_date: начальная дата
+        # end_date: конечная дата
+        
+        outputs: |
+          # === SVG ВЕРСИИ ===
+          dist/snake-matrix.svg?color_snake=00FF41&color_dots=003B00,006400,007C00,00A100,00FF41&square_size=11&pixel_size=3
+          dist/snake-cyber.svg?color_snake=FF00FF&color_dots=1a0033,330066,4d0099,6600cc,ff00ff&square_size=13
+          dist/snake-orange.svg?color_snake=FF6B35&color_dots=FF6B35,FF8E35,FFB135,FFD435,FFE135
+          dist/snake-ice.svg?color_snake=00FFFF&color_dots=003333,006666,009999,00CCCC,00FFFF
           
-          # Выходные файлы и их настройки:
-          outputs: |
-            # SVG версия для светлой темы
-            dist/github-contribution-grid-snake.svg
-            # SVG версия для тёмной темы с палитрой GitHub Dark
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-            # Анимированная GIF версия с кастомными цветами
-            dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+          # === ТЁМНЫЕ ТЕМЫ ===
+          dist/snake-dark-matrix.svg?color_snake=00FF41&color_dots=003B00,006400,007C00,00A100,00FF41&square_size=11&palette=github-dark
+          dist/snake-dark-cyber.svg?color_snake=FF00FF&color_dots=1a0033,330066,4d0099,6600cc,ff00ff&square_size=13&palette=github-dark
           
-          # Дополнительные параметры (закомментированы):
-          # gif_out_path: dist/my-snake.gif          # Кастомный путь для GIF
-          # svg_out_path: dist/my-snake.svg          # Кастомный путь для SVG
-          # frames_per_day: 2                        # Кадров в день (для плавности)
-          # autorun_delay: 100                       # Задержка перед авто-запуском (мс)
-          # dark_palette: github-dark                # Палитра для тёмной темы
-          # light_palette: github-light              # Палитра для светлой темы
+          # === GIF ВЕРСИИ ===
+          dist/snake-matrix.gif?color_snake=00FF41&color_dots=003B00,006400,007C00,00A100,00FF41&square_size=11&pixel_size=3&frames_per_day=2&frame_duration=100&autorun=true&autorun_delay=1000
+          dist/snake-cyber.gif?color_snake=FF00FF&color_dots=1a0033,330066,4d0099,6600cc,ff00ff&square_size=13&frames_per_day=3&frame_duration=80&loop=true&loop_delay=2000
+          dist/snake-fire.gif?color_snake=FF4500&color_dots=8B0000,B22222,DC143C,FF4500,FF6347&square_size=12&frames_per_day=4&frame_duration=60
           
-        env:
-          # Токен для доступа к GitHub API (обязательный)
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Шаг 3: Показать статус сборки (опционально, для дебага)
-      - name: Show build status
-        run: git status  # Показывает текущее состояние git репозитория
-        # Другие полезные команды для дебага:
-        # run: |
-        #   ls -la dist/          # Показать сгенерированные файлы
-        #   pwd                   # Показать текущую директорию
-        #   whoami                # Показать пользователя
-
-      # Шаг 4: Запушить сгенерированные файлы в ветку output
-      - name: Push generated files to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0  # Action для работы с GitHub Pages
-        with:
-          target_branch: output  # Ветка куда пушатся файлы (обязательно 'output')
-          build_dir: dist        # Директория с собранными файлами
-          commit_message: "Update snake animations"  # Сообщение коммита
-          # Дополнительные параметры:
-          # keep_history: true    # Сохранять историю коммитов в ветке
-          # force_orphan: false   # Не создавать orphan ветку
-          # allow_empty: true     # Разрешать пустые коммиты
-          # rebase: false         # Не делать rebase
-        env:
-          # Токен для доступа к GitHub API
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Дополнительные шаги (закомментированы):
-      # - name: Notify on success
-        # if: success()  # Выполнять только если предыдущие шаги успешны
-        # run: |
-      #     echo "Snake animation generated successfully!"
-      #     # Можно добавить уведомление в Slack/Telegram/Discord
-      
-      # - name: Notify on failure
-      #   if: failure()  # Выполнять только если есть ошибки
-      #   run: |
-      #     echo "Workflow failed!"
-      #     # Уведомление об ошибке
+          # === ЭКСПЕРИМЕНТАЛЬНЫЕ ===
+          dist/snake-rainbow.gif?color_snake=random&color_dots=FF0000,FF7F00,FFFF00,00FF00,0000FF,4B0082,8B00FF&square_size=10&frames_per_day=5
+          dist/snake-minimal.svg?color_snake=FFFFFF&color_dots=333333,666666,999999,CCCCCC,FFFFFF&square_size=15&pixel_size=2
+          
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Deploy snake army to output branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: output
+        force_orphan: true
+        commit_message: "🐍 Update snake animations - $(date)"
