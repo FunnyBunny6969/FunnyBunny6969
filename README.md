@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://readme-typing-svg.herokuapp.com/?font=Silkscreen&size=35&center=true&vCenter=true&color=00FF00&width=500&height=70&duration=4000&&pause=500&lines=Hi+There!;+I'm+FunnyBunny6969!;" />
+    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&color=00FF41&width=500&height=70&duration=4000&lines=Hi+There!;+I'm+FunnyBunny6969!;" />
     <br>
     <!-- <img src="https://komarev.com/ghpvc/?username=funnybunny6969&style=flat-square&color=blue&widht=40px" alt=""/> -->
     <!-- <div id="header" align="center"> -->
@@ -24,12 +24,10 @@
 </div> -->
 
  
-![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-pixel.svg)
-![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-gold.svg)
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-matrix.svg)
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-gold.svg)
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-ice.svg)
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-cyber.svg)
-![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-tech.svg)
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-fire.svg)
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-purple.svg)
 
