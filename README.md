@@ -26,13 +26,24 @@
 
 <hr/>
  
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/github-contribution-grid-snake.svg)
+
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/github-contribution-grid-snake-blue.svg)
 
-<h2 align="center">🔥My Stats🔥</h2>
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/github-contribution-grid-snake-dark.svg)
 
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-gold.svg)
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-matrix.svg)
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-ice.svg)
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-cyber.svg)
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-tech.svg)
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-fire.svg)
+
+<h2 align="center">🔥My Stats🔥</h2>
 <div align="center">
     <a href="https://git.io/streak-stats"><img src="https://github-readme-streak-stats.herokuapp.com?user=funnybunny6969&theme=dracula" alt="GitHub Streak" /></a>
 </div>
+
 
 <h1 align="center">
     <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Good+luck+everyone!;" />
