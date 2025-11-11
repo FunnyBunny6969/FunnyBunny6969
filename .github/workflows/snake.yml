@@ -26,7 +26,7 @@ jobs:
 
 
             # ОГНЕННАЯ (оранжево-красная)
-            dist/snake-fire.svg?color_snake=#FF6B35&color_dots=#8B0000,#DC143C,#FF4500,#FF6347,#FF6B35
+            dist/snake-fire.svg?color_snake=#FF0000&color_dots=#8B0000,#B22222,#DC143C,#FF0000,#FF2400
             
             # ТЕХНО (жёлто-серая) 
             dist/snake-tech.svg?color_snake=#FFD700&color_dots=#2F4F4F,#696969,#A9A9A9,#D3D3D3,#FFD700
