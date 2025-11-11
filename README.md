@@ -16,19 +16,19 @@
 </div>
 
 
-<div align="center"> 
+<!-- <div align="center"> 
     <a href="mailto:gittigwork@gmail.com">
         <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
     </a>
-    <a href="https://t.me/d0ordash"">
+    <a href="https://t.me/<NAME>"">
         <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/>
     </a>
-</div>
+</div> -->
 
 <hr/>
  
 <div align="center">
-    <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/funnybunny6969/funnybunny6969/output/github-contribution-grid-snake.svg" />
+    <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/output/github-contribution-grid-snake.svg" />
     <br/>
 </div> 
 
