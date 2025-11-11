@@ -9,10 +9,6 @@
 
 <br/>
 
-<p align="center">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Consolas&color=00FF41&size=30&center=true&vCenter=true&width=600&height=70&lines=SYSTEM+ONLINE;USER:+TR1K5TER;ACCESS:+GRANTED;MATRIX:+ACTIVE">
-</p>
-
 <!-- <div align="center">
 🔭 I am currently a <a href="https://it.belstu.by/" >computer science student at BSTU University</a> (Minsk)
  
