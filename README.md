@@ -38,6 +38,8 @@
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-cyber.svg)
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-tech.svg)
 ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-fire.svg)
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-steel.svg)
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/snake-purple.svg)
 
 <h2 align="center">🔥My Stats🔥</h2>
 <div align="center">

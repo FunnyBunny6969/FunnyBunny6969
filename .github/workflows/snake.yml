@@ -25,12 +25,29 @@ jobs:
             dist/github-contribution-grid-snake-blue.svg?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
 
-            dist/snake-gold.svg?color_snake=FFD700&color_dots=332900,664D00,996B00,CC8F00,FFD700
-            dist/snake-matrix.svg?color_snake=00FF41&color_dots=003B00,006400,007C00,00A100,00FF41
-            dist/snake-ice.svg?color_snake=00FFFF&color_dots=003333,006666,009999,00CCCC,00FFFF
-            dist/snake-cyber.svg?color_snake=FF00FF&color_dots=1a0033,330066,4d0099,6600cc,ff00ff
-            dist/snake-tech.svg?color_snake=FFD700&color_dots=2F4F4F,696969,A9A9A9,D3D3D3,FFD700
-            dist/snake-fire.svg?color_snake=FF6B35&color_dots=8B0000,B22222,DC143C,FF4500,FF6347
+            # ОГНЕННАЯ (оранжево-красная)
+            dist/snake-fire.svg?color_snake=#FF6B35&color_dots=#8B0000,#DC143C,#FF4500,#FF6347,#FF6B35
+            
+            # ТЕХНО (жёлто-серая) 
+            dist/snake-tech.svg?color_snake=#FFD700&color_dots=#2F4F4F,#696969,#A9A9A9,#D3D3D3,#FFD700
+            
+            # КИБЕРПАНК (неоновая)
+            dist/snake-cyber.svg?color_snake=#FF00FF&color_dots=#1a0033,#4d0099,#6600cc,#9900ff,#ff00ff
+            
+            # МАТРИЦА (классика)
+            dist/snake-matrix.svg?color_snake=#00FF41&color_dots=#003B00,#006400,#00A100,#00D100,#00FF41
+            
+            # ЛЕДЯНАЯ (арктика)
+            dist/snake-ice.svg?color_snake=#00FFFF&color_dots=#003333,#006666,#00AAAA,#00DDDD,#00FFFF
+            
+            # ЗОЛОТАЯ (роскошь)
+            dist/snake-gold.svg?color_snake=#FFD700&color_dots=#332900,#664D00,#996B00,#CC8F00,#FFD700
+            
+            # БАГРОВАЯ (фиолетовая)
+            dist/snake-purple.svg?color_snake=#8A2BE2&color_dots=#4B0082,#6A0DAD,#8A2BE2,#9370DB,#BA55D3
+            
+            # СТАЛЬНАЯ (металлик)
+            dist/snake-steel.svg?color_snake=#C0C0C0&color_dots=#2F4F4F,#556B2F,#696969,#808080,#C0C0C0
 
       - name: push github-contribution-grid-snake.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v4.1.0
