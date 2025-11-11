@@ -27,8 +27,7 @@
 <hr/>
  
 <div align="center">
-    <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
-    <img alt="github-snake" src="github-snake.svg" />
+    ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/github-contribution-grid-snake-blue.svg)
 </div>
 
 <h2 align="center">🔥My Stats🔥</h2>
