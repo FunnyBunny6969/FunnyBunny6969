@@ -31,12 +31,8 @@
 <hr/>
  
 <div align="center">
-  <img alt="snake is eating my commits 🐍" src="https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/output/github-contribution-grid-snake.svg" />
-
-
-  <img alt="snake is eating my commits 🐍" src="https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/output/snake-rainbow.gif?color_snake=random&color_dots=FF0000,FF7F00,FFFF00,00FF00,0000FF,4B0082,8B00FF&square_size=10&frames_per_day=5" />
-
-
+    <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
+    <img alt="github-snake" src="github-snake.svg" />
 </div>
 
 <h2 align="center">🔥My Stats🔥</h2>

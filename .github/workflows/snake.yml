@@ -1,86 +1,47 @@
-name: Generate Ultimate Snake
+name: manual run
 
 on:
-  # Триггеры запуска
-  schedule:
-    - cron: '0 */12 * * *'  # Каждые 6 часов
-  workflow_dispatch:        # Ручной запуск
-  push:
-    paths: ['.github/workflows/**']  # При изменении workflow
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  generate-snake:
+  generate:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
-    
-    steps:
-    - name: Generate ultimate snake animation
-      uses: Platane/snk@master
-      with:
-        # === ОСНОВНЫЕ НАСТРОЙКИ ===
-        github_user_name: ${{ github.repository_owner }}
-        
-        # === КАКИЕ КОММИТЫ УЧИТЫВАТЬ ===
-        # gist_include: true|false           # Включать коммиты из Gist
-        # github_include: true|false         # Включать коммиты из GitHub
-        # private_include: true|false        # Включать приватные репозитории
-        
-        # === ЦВЕТА ЗМЕЙКИ ===
-        # color_snake: hex код или название
-        # color_dots: список цветов для точек
-        # color_dots_max: цвет максимальной активности
-        # color_dots_min: цвет минимальной активности 
-        # color_dots_null: цвет отсутствия активности
-        
-        # === РАЗМЕРЫ И АНИМАЦИЯ ===  
-        # square_size: размер квадратика
-        # pixel_size: размер пикселя
-        # margin: отступы
-        # margin_y: вертикальный отступ
-        # margin_x: горизонтальный отступ
-        # frames_per_day: кадров в день (плавность)
-        # frame_duration: длительность кадра (мс)
-        # autorun: авто-запуск анимации
-        # autorun_delay: задержка авто-запуска
-        # loop: зацикливание
-        # loop_delay: пауза между циклами
-        
-        # === ФИЛЬТРАЦИЯ КОММИТОВ ===
-        # year_filter: фильтр по году
-        # month_filter: фильтр по месяцу
-        # start_date: начальная дата
-        # end_date: конечная дата
-        
-        outputs: |
-          dist/github-contribution-grid-snake.svg
+    timeout-minutes: 5
 
-          # === SVG ВЕРСИИ ===
-          dist/snake-matrix.svg?color_snake=00FF41&color_dots=003B00,006400,007C00,00A100,00FF41&square_size=11&pixel_size=3
-          dist/snake-cyber.svg?color_snake=FF00FF&color_dots=1a0033,330066,4d0099,6600cc,ff00ff&square_size=13
-          dist/snake-orange.svg?color_snake=FF6B35&color_dots=FF6B35,FF8E35,FFB135,FFD435,FFE135
-          dist/snake-ice.svg?color_snake=00FFFF&color_dots=003333,006666,009999,00CCCC,00FFFF
-          
-          # === ТЁМНЫЕ ТЕМЫ ===
-          dist/snake-dark-matrix.svg?color_snake=00FF41&color_dots=003B00,006400,007C00,00A100,00FF41&square_size=11&palette=github-dark
-          dist/snake-dark-cyber.svg?color_snake=FF00FF&color_dots=1a0033,330066,4d0099,6600cc,ff00ff&square_size=13&palette=github-dark
-          
-          # === GIF ВЕРСИИ ===
-          dist/snake-matrix.gif?color_snake=00FF41&color_dots=003B00,006400,007C00,00A100,00FF41&square_size=11&pixel_size=3&frames_per_day=2&frame_duration=100&autorun=true&autorun_delay=1000
-          dist/snake-cyber.gif?color_snake=FF00FF&color_dots=1a0033,330066,4d0099,6600cc,ff00ff&square_size=13&frames_per_day=3&frame_duration=80&loop=true&loop_delay=2000
-          dist/snake-fire.gif?color_snake=FF4500&color_dots=8B0000,B22222,DC143C,FF4500,FF6347&square_size=12&frames_per_day=4&frame_duration=60
-          
-          # === ЭКСПЕРИМЕНТАЛЬНЫЕ ===
-          dist/snake-rainbow.gif?color_snake=random&color_dots=FF0000,FF7F00,FFFF00,00FF00,0000FF,4B0082,8B00FF&square_size=10&frames_per_day=5
-          dist/snake-minimal.svg?color_snake=FFFFFF&color_dots=333333,666666,999999,CCCCCC,FFFFFF&square_size=15&pixel_size=2
-          
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: Deploy snake army to output branch
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-        publish_branch: output
-        force_orphan: true
-        commit_message: "🐍 Update snake animations - $(date)"
+    steps:
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/only-svg/github-contribution-grid-snake.svg
+            dist/only-svg/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/only-svg/github-contribution-grid-snake-blue.svg?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+
+      - uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/docker/github-contribution-grid-snake.svg
+            dist/docker/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/docker/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+
+      - name: ensure the generated file exists
+        run: |
+          ls dist
+          test -f dist/only-svg/github-contribution-grid-snake.svg
+          test -f dist/only-svg/github-contribution-grid-snake-dark.svg
+          test -f dist/only-svg/github-contribution-grid-snake-blue.svg
+
+          test -f dist/docker/github-contribution-grid-snake.svg
+          test -f dist/docker/github-contribution-grid-snake-dark.svg
+          test -f dist/docker/github-contribution-grid-snake.gif
+
+      - name: push github-contribution-grid-snake.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v4.1.0
+        with:
+          target_branch: manual-run-output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
