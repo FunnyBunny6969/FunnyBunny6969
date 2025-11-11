@@ -3,18 +3,17 @@
     <br>
     <img src="https://komarev.com/ghpvc/?username=funnybunny6969&style=flat-square&color=blue&widht=40px" alt=""/>
     <div id="header" align="center">
-        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2RrdGMzNnR5eWQxcmltbzFyOG03ZW5iZGsxMXV2Z2kxOHJ6cWNucCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3kPDmoWdBpQPNhCnUG/giphy.gif" width="250"/>
+        <!-- <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2RrdGMzNnR5eWQxcmltbzFyOG03ZW5iZGsxMXV2Z2kxOHJ6cWNucCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3kPDmoWdBpQPNhCnUG/giphy.gif" width="250"/> -->
     </div>
 </h1>
 
 <br/>
 
-<div align="center">
+<!-- <div align="center">
 🔭 I am currently a <a href="https://it.belstu.by/" >computer science student at BSTU University</a> (Minsk)
  
 ⚡ I am just starting to learn the interesting world of IT and here **I will post all my stages of learning**
-</div>
-
+</div> -->
 
 <!-- <div align="center"> 
     <a href="mailto:gittigwork@gmail.com">
@@ -28,9 +27,8 @@
 <hr/>
  
 <div align="center">
-    <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/output/github-contribution-grid-snake.svg" />
-    <br/>
-</div> 
+  <img alt="snake is eating my commits 🐍" src="https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/output/github-contribution-grid-snake.svg" />
+</div>
 
 <h2 align="center">🔥My Stats🔥</h2>
 

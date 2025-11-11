@@ -1,0 +1,111 @@
+# GitHub Action для генерации графика контрибуций с змейкой, которая "ест" твои коммиты
+name: Generate Snake
+
+# Условия запуска workflow
+on:
+  # Расписание автоматического запуска (cron format)
+  schedule:
+    # Запускать каждые 12 часов (в 00:00 и 12:00 UTC)
+    - cron: "0 */12 * * *"  # минута(0) час(*/12) день_месяца(*) месяц(*) день_недели(*)
+
+  # Разрешить ручной запуск из вкладки Actions
+  workflow_dispatch:
+  
+  # Также запускать при каждом пуше в указанные ветки
+  push:
+    branches:
+    - main    # Можно добавить другие ветки: - develop, - master
+
+# Дополнительные триггеры (закомментированы - раскомментируй если нужно):
+#  pull_request:           # Запуск при пул-реквестах
+#    branches: [ main ]
+#  watch:                  # Запуск при добавлении в "watch" (звёздочки)
+#    types: [ started ]
+
+# Работы (jobs) которые выполняются в workflow
+jobs:
+  # Одна задача под названием "build"
+  build:
+    # Тип виртуальной машины для выполнения
+    runs-on: ubuntu-latest  # Можно изменить на: windows-latest, macos-latest
+    
+    # Дополнительные параметры среды (закомментированы):
+    # env:
+    #   NODE_VERSION: '18'    # Версия Node.js если нужна
+    #   PYTHON_VERSION: '3.10' # Версия Python если нужна
+    
+    # Шаги выполнения
+    steps:
+      # Шаг 1: Клонирование репозитория
+      - name: Clone repository
+        uses: actions/checkout@v3  # Стандартное действие для клонирования repo
+        # with:
+        #   fetch-depth: 0        # Полная история коммитов (если нужно)
+        #   token: ${{ secrets.PAT }}  # Кастомный токен (если нужен особый доступ)
+
+      # Шаг 2: Генерация файлов со змейкой
+      - name: Generate snake animation files
+        uses: Platane/snk@v3  # Основной action для создания змейки
+        id: snake-gif  # ID для обращения к результатам этого шага
+        with:
+          # Имя пользователя GitHub (автоматически подставляется)
+          github_user_name: ${{ github.repository_owner }}
+          
+          # Выходные файлы и их настройки:
+          outputs: |
+            # SVG версия для светлой темы
+            dist/github-contribution-grid-snake.svg
+            # SVG версия для тёмной темы с палитрой GitHub Dark
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            # Анимированная GIF версия с кастомными цветами
+            dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+          
+          # Дополнительные параметры (закомментированы):
+          # gif_out_path: dist/my-snake.gif          # Кастомный путь для GIF
+          # svg_out_path: dist/my-snake.svg          # Кастомный путь для SVG
+          # frames_per_day: 2                        # Кадров в день (для плавности)
+          # autorun_delay: 100                       # Задержка перед авто-запуском (мс)
+          # dark_palette: github-dark                # Палитра для тёмной темы
+          # light_palette: github-light              # Палитра для светлой темы
+          
+        env:
+          # Токен для доступа к GitHub API (обязательный)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Шаг 3: Показать статус сборки (опционально, для дебага)
+      - name: Show build status
+        run: git status  # Показывает текущее состояние git репозитория
+        # Другие полезные команды для дебага:
+        # run: |
+        #   ls -la dist/          # Показать сгенерированные файлы
+        #   pwd                   # Показать текущую директорию
+        #   whoami                # Показать пользователя
+
+      # Шаг 4: Запушить сгенерированные файлы в ветку output
+      - name: Push generated files to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0  # Action для работы с GitHub Pages
+        with:
+          target_branch: output  # Ветка куда пушатся файлы (обязательно 'output')
+          build_dir: dist        # Директория с собранными файлами
+          commit_message: "Update snake animations"  # Сообщение коммита
+          # Дополнительные параметры:
+          # keep_history: true    # Сохранять историю коммитов в ветке
+          # force_orphan: false   # Не создавать orphan ветку
+          # allow_empty: true     # Разрешать пустые коммиты
+          # rebase: false         # Не делать rebase
+        env:
+          # Токен для доступа к GitHub API
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Дополнительные шаги (закомментированы):
+      # - name: Notify on success
+        # if: success()  # Выполнять только если предыдущие шаги успешны
+        # run: |
+      #     echo "Snake animation generated successfully!"
+      #     # Можно добавить уведомление в Slack/Telegram/Discord
+      
+      # - name: Notify on failure
+      #   if: failure()  # Выполнять только если есть ошибки
+      #   run: |
+      #     echo "Workflow failed!"
+      #     # Уведомление об ошибке
