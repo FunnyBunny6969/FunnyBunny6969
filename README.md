@@ -1,7 +1,7 @@
 <h1 align="center">
-    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+m0loko!;" />
+    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&color=00FF00&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+FunnyBunny6969!;" />
     <br>
-    <img src="https://komarev.com/ghpvc/?username=m0loko&style=flat-square&color=blue&widht=40px" alt=""/>
+    <img src="https://komarev.com/ghpvc/?username=funnybunny6969&style=flat-square&color=blue&widht=40px" alt=""/>
     <div id="header" align="center">
         <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2RrdGMzNnR5eWQxcmltbzFyOG03ZW5iZGsxMXV2Z2kxOHJ6cWNucCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3kPDmoWdBpQPNhCnUG/giphy.gif" width="250"/>
     </div>
@@ -42,12 +42,6 @@
 
 
 
-
-    
-    
-
-## Hi there 👋
-## TEST
 
 <!--
 **FunnyBunny6969/FunnyBunny6969** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
