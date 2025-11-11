@@ -26,9 +26,7 @@
 
 <hr/>
  
-<div align="center">
-    ![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/github-contribution-grid-snake-blue.svg)
-</div>
+![Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/SNAKES_svg/github-contribution-grid-snake-blue.svg)
 
 <h2 align="center">🔥My Stats🔥</h2>
 
