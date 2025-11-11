@@ -11,8 +11,6 @@
 
 <p align="center">
     <img src="https://readme-typing-svg.herokuapp.com?font=Consolas&color=00FF41&size=30&center=true&vCenter=true&width=600&height=70&lines=SYSTEM+ONLINE;USER:+TR1K5TER;ACCESS:+GRANTED;MATRIX:+ACTIVE">
-
-    ![Matrix Snake](https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/output/snake-matrix.svg)
 </p>
 
 <!-- <div align="center">
@@ -34,6 +32,11 @@
  
 <div align="center">
   <img alt="snake is eating my commits 🐍" src="https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/output/github-contribution-grid-snake.svg" />
+
+
+  <img alt="snake is eating my commits 🐍" src="https://raw.githubusercontent.com/FunnyBunny6969/FunnyBunny6969/output/snake-rainbow.gif?color_snake=random&color_dots=FF0000,FF7F00,FFFF00,00FF00,0000FF,4B0082,8B00FF&square_size=10&frames_per_day=5" />
+
+
 </div>
 
 <h2 align="center">🔥My Stats🔥</h2>

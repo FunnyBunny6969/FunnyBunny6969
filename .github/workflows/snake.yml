@@ -3,7 +3,7 @@ name: Generate Ultimate Snake
 on:
   # Триггеры запуска
   schedule:
-    - cron: '0 */6 * * *'  # Каждые 6 часов
+    - cron: '0 */12 * * *'  # Каждые 6 часов
   workflow_dispatch:        # Ручной запуск
   push:
     paths: ['.github/workflows/**']  # При изменении workflow
@@ -52,6 +52,8 @@ jobs:
         # end_date: конечная дата
         
         outputs: |
+          dist/github-contribution-grid-snake.svg
+
           # === SVG ВЕРСИИ ===
           dist/snake-matrix.svg?color_snake=00FF41&color_dots=003B00,006400,007C00,00A100,00FF41&square_size=11&pixel_size=3
           dist/snake-cyber.svg?color_snake=FF00FF&color_dots=1a0033,330066,4d0099,6600cc,ff00ff&square_size=13
